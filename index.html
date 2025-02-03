@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #000;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(45deg, #1d1c1c, #0d0e0d, #1c1c1d, #1b1919, #212222); /* تأثير RGB متدرج */
+            background-size: 400% 400%;
+            animation: gradientAnimation 12s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .container {
+            background: rgba(28, 28, 28, 0.8); /* خلفية شبه شفافة */
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            max-width: 500px;
+            backdrop-filter: blur(10px); /* تمويه (Blur) خلفية الـ container */
+        }
+
+        h1 {
+            color: white;
+        }
+
+        .app-logo {
+            width: 150px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            animation: animateTitle 7s ease-in-out infinite;
+        }
+
+        @keyframes animateTitle {
+            0% {
+                color: #fff;
+                transform: scale(1);
+                font-size: 24px;
+                font-weight: normal;
+                text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
+            }
+            25% {
+                color: #fff;
+                transform: scale(1);
+                font-size: 25px;
+                font-weight: normal;
+                text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.7);
+            }
+            50% {
+                color: #fff;
+                transform: scale(1);
+                font-size: 24px;
+                font-weight: normal;
+                text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
+            }
+            75% {
+                color: #fff;
+                transform: scale(1);
+                font-size: 23px;
+                font-weight: normal;
+                text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
+            }
+            100% {
+                color: #fff;
+                transform: scale(1);
+                font-size: 24px;
+                font-weight: normal;
+                text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
+            }
+        }
+
+        p {
+            font-size: 24px;
+            color: #ffffff;
+            font-weight: normal;
+            text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
+            animation: glowEffect 5s ease-in-out infinite alternate;
+        }
+
+        @keyframes glowEffect {
+            0% {
+                text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
+            }
+            50% {
+                text-shadow: 2px 2px 6px rgba(255, 255, 255, 1);
+            }
+            100% {
+                text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
+            }
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 20px 40px;
+            background: transparent;
+            color: white;
+            text-decoration: none;
+            font-size: 22px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-weight: bold;
+            border: 2px solid white;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .download-btn:hover::before {
+            left: 100%;
+        }
+
+        .download-btn:hover {
+            border-width: 4px;
+            transform: scale(1.1);
+            box-shadow: 0 0 11px rgba(255, 255, 255, 0.5);
+        }
+
+        .social-icons {
+            margin-top: 20px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 2px;  /* المسافة الأفقية بين الصور */
+            flex-wrap: wrap;  /* السماح بلف الصور إذا كانت هناك حاجة */
+        }
+
+        .social-icons a {
+            display: inline-block;
+        }
+
+        .discord-img:hover {
+            border-width: 4px;
+            transform: scale(1.1);
+        }
+
+        .telegram-img:hover {
+            border-width: 4px;
+            transform: scale(1.1);
+        }
+
+        .youtube-img:hover {
+            border-width: 4px;
+            transform: scale(1.1);
+        }
+
+        .youtube-img {
+            width: 56px;  /* حجم صورة YouTube */
+            height: 40px;
+            margin: 10px 20px;  /* 10px مسافة عمودية، 20px مسافة أفقية */
+            transition: all 0.2s ease-in-out; /* تأثير انتقالي ناعم عند التغيير */
+        }
+
+        .discord-img {
+            width: 70px;  /* حجم صورة Discord */
+            height: 42px;
+            margin: 11px 3px;  /* 10px مسافة عمودية، 20px مسافة أفقية */
+            transition: all 0.2s ease-in-out; /* تأثير انتقالي ناعم عند التغيير */
+        }
+
+        .telegram-img {
+            width: 50px;  /* حجم صورة Telegram */
+            height: 45px;
+            margin: 9px 20px;  /* 10px مسافة عمودية، 20px مسافة أفقية */
+            transition: all 0.2s ease-in-out; /* تأثير انتقالي ناعم عند التغيير */
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 15px;
+            color: #bbb;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-in-out 0.5s forwards;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glowImage {
+            0% {
+                filter: brightness(100%);
+            }
+            50% {
+                filter: brightness(125%);
+            }
+            100% {
+                filter: brightness(100%);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://raw.githubusercontent.com/as6cd0/SemoImages/main/Semo%20logo.png" alt="شعار التطبيق" class="app-logo">
+        <div class="title">Semo Executer</div>
+        <p>v2.6</p>
+        <a href="https://download1324.mediafire.com/m7hk40l5rkegj4fHDZZjqtLJM_kwHGUJDkSy6xrtScE-RggMRXGNhDXzpTqxXGTkhJL-W7gGYGOzcHFHKMvZXrNdq7zW740Hc6BLKLqazaynUvAClw7uC2ksZh30h2yu7S83N3EEfI68WTYPczH93xrGj-6hLmytsKFej5X5VDwTcw/7f1nrpkor8cua5t/Semo+Executer+2.6v.rar" class="download-btn" download>Download</a>
+    </div>
+    
+    <div class="social-icons">
+        <a href="https://www.youtube.com/@SphinxR7" target="_blank">
+            <img src="https://raw.githubusercontent.com/as6cd0/SemoImages/main/Youtube.png" alt="YouTube" class="youtube-img">
+        </a>
+        <a href="https://discord.com/invite/dKmVz82yxj" target="_blank">
+            <img src="https://raw.githubusercontent.com/as6cd0/SemoImages/main/Discord.png" alt="Discord" class="discord-img">
+        </a>
+        <a href="https://t.me/SPscript1" target="_blank">
+            <img src="https://raw.githubusercontent.com/as6cd0/SemoImages/main/Telegram.png" alt="Telegram" class="telegram-img">
+        </a>
+    </div>
+    
+
+    <div class="footer">Our channels.</div>
+</body>
+</html>
